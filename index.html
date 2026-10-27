@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#8d164c">
+  <title>Mirhan Hussein — Birthday Invitation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <audio id="birthdayMusic" src="birthday-song.mp3" autoplay loop preload="auto" playsinline></audio>
+
+  <main class="page page-one" id="pageOne" aria-label="Birthday invitation cover">
+    <img class="invitation-art" src="invitation-1.gif" alt="Animated pink birthday invitation">
+    <button class="open-invitation" id="openInvitation" type="button">OPEN INVITATION <span>♥</span></button>
+  </main>
+
+  <main class="page page-two hidden" id="pageTwo" aria-label="Birthday invitation details">
+    <img class="invitation-art" src="invitation-2.gif" alt="Animated birthday page for Mirhan Hussein">
+    <!-- Responsive click areas aligned over the social buttons in the supplied artwork -->
+    <a class="hotspot instagram" href="https://www.instagram.com/mirhanhusseinmima?dlrf=MThqN3p6N3c1NnhqZw==" target="_blank" rel="noopener noreferrer" aria-label="Open Mirhan Hussein Instagram"></a>
+    <a class="hotspot facebook" href="https://www.facebook.com/share/1GfmG9eySh/" target="_blank" rel="noopener noreferrer" aria-label="Open Mirhan Hussein Facebook page"></a>
+    <a class="hotspot wikipedia" href="https://en.wikipedia.org/wiki/Mirhan_Hussein" target="_blank" rel="noopener noreferrer" aria-label="Open Mirhan Hussein Wikipedia"></a>
+    <button class="hotspot comment-hotspot" id="openComments" type="button" aria-label="Write Mirhan a birthday comment"></button>
+    <button class="back-button" id="backButton" type="button">‹ Back</button>
+  </main>
+
+  <div class="modal-backdrop hidden" id="commentModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <section class="comment-card">
+      <button class="close-modal" id="closeComments" type="button" aria-label="Close">×</button>
+      <div class="mini-crown">♛</div>
+      <h1 id="modalTitle">Write Mirhan a sweet comment</h1>
+      <p class="modal-subtitle">Leave a birthday wish 💗</p>
+      <form id="commentForm">
+        <label for="visitorName">Your name</label>
+        <input id="visitorName" name="visitorName" maxlength="60" placeholder="Write your name" required>
+        <label for="visitorComment">Your message</label>
+        <textarea id="visitorComment" name="visitorComment" rows="4" maxlength="500" placeholder="Happy Birthday, Mirhan..." required></textarea>
+        <button class="submit-comment" type="submit">Add my comment ✨</button>
+      </form>
+      <p class="privacy-note">Comments entered here appear in this browser only. To make comments visible to everyone across devices, connect a public comments service such as Giscus or a form/database service.</p>
+      <div class="comments-list" id="commentsList" aria-live="polite"></div>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

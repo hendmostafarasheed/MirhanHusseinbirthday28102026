@@ -1,0 +1,48 @@
+* { box-sizing: border-box; }
+:root { --wine: #8d164c; --pink: #f5bfd4; --gold: #e9c5a4; }
+html, body { margin: 0; min-height: 100%; background: #280c1b; font-family: Georgia, "Times New Roman", serif; }
+body { min-height: 100svh; display: flex; align-items: center; justify-content: center; overflow-x: hidden; }
+.page { position: relative; width: min(100vw, calc(100svh * 2 / 3)); height: min(100svh, calc(100vw * 3 / 2)); max-height: none; aspect-ratio: 2 / 3; flex: 0 0 auto; overflow: hidden; background: #f6d7e4; }
+.page.hidden, .hidden { display: none !important; }
+.invitation-art { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: fill; object-position: center; background: #f6d7e4; }
+.open-invitation {
+  position: absolute; left: 50%; bottom: max(18px, env(safe-area-inset-bottom));
+  transform: translateX(-50%); z-index: 3; border: 1px solid #fff0f7;
+  border-radius: 999px; padding: 13px 25px; color: white; font-size: 12px;
+  letter-spacing: 2px; background: linear-gradient(135deg, #b52165, #73103f);
+  box-shadow: 0 0 12px #fff, 0 0 28px #f7a9cf; cursor: pointer;
+  animation: buttonGlow 1.8s ease-in-out infinite alternate;
+}
+.open-invitation span { margin-left: 8px; color: #ffd9eb; }
+@keyframes buttonGlow { from { box-shadow: 0 0 8px #fff, 0 0 15px #f7a9cf; } to { box-shadow: 0 0 15px #fff, 0 0 34px #ff69b4; } }
+.hotspot { position: absolute; display: block; border: 0; padding: 0; background: transparent; cursor: pointer; z-index: 2; }
+.hotspot:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+/* Click areas aligned to the actual illustrated buttons in invitation-2.gif (768 × 1152).
+   The artwork and hotspots scale together because both are positioned within .page. */
+.instagram { left: 45.0%; top: 54.2%; width: 15.2%; height: 11.6%; border-radius: 30%; }
+.facebook  { left: 61.9%; top: 54.2%; width: 15.3%; height: 11.6%; border-radius: 30%; }
+.wikipedia { left: 79.1%; top: 54.2%; width: 15.1%; height: 11.6%; border-radius: 30%; }
+.comment-hotspot { left: 27.0%; top: 82.0%; width: 47.0%; height: 10.5%; border-radius: 24px; }
+.back-button { position: absolute; z-index: 4; left: 12px; top: max(12px, env(safe-area-inset-top)); border: 1px solid #fff; border-radius: 999px; padding: 8px 13px; color: #fff; background: #8d164cdd; cursor: pointer; box-shadow: 0 2px 10px #54122e55; }
+.modal-backdrop { position: fixed; z-index: 10; inset: 0; padding: 18px; display: flex; align-items: center; justify-content: center; background: #230817c9; backdrop-filter: blur(8px); overflow-y: auto; }
+.comment-card { position: relative; width: min(100%, 440px); max-height: 92svh; overflow-y: auto; padding: 26px 22px 22px; border: 1px solid #f5d5e4; border-radius: 24px; background: linear-gradient(145deg, #fff8fb, #f9dce8); color: #651238; box-shadow: 0 0 30px #f7a8ce80; }
+.close-modal { position: absolute; top: 8px; right: 13px; border: 0; background: transparent; color: #8d164c; font-size: 30px; cursor: pointer; }
+.mini-crown { text-align: center; font-size: 30px; color: #a71e5d; }
+.comment-card h1 { margin: 4px 18px 6px; text-align: center; font-size: clamp(21px, 5vw, 28px); }
+.modal-subtitle { text-align: center; margin: 0 0 18px; color: #9b4b6d; }
+.comment-card label { display: block; margin: 12px 0 6px; font-size: 14px; }
+.comment-card input, .comment-card textarea { width: 100%; border: 1px solid #e6a9c5; border-radius: 12px; padding: 12px; font: 16px Arial, sans-serif; color: #451026; background: #fff; }
+.comment-card textarea { resize: vertical; }
+.submit-comment { display: block; width: 100%; margin-top: 14px; border: 0; border-radius: 999px; padding: 13px; color: #fff; font-size: 15px; background: linear-gradient(120deg, #a51e5c, #6e123d); box-shadow: 0 5px 14px #a51e5c44; cursor: pointer; }
+.privacy-note { font: 12px/1.45 Arial, sans-serif; color: #87556b; margin: 14px 0 8px; }
+.comments-list { display: grid; gap: 8px; }
+.comment-item { border: 1px solid #f0bfd4; border-radius: 12px; padding: 10px 12px; background: #fff9fc; overflow-wrap: anywhere; }
+.comment-item strong { display: block; margin-bottom: 4px; color: #8d164c; }
+.comment-item p { margin: 0; white-space: pre-wrap; font: 14px/1.45 Arial, sans-serif; }
+@media (min-aspect-ratio: 3/5) {
+  .page { width: min(100vw, calc(100svh * 2 / 3)); height: min(100svh, calc(100vw * 3 / 2)); }
+}
+@media (max-width: 480px) {
+  .open-invitation { padding: 12px 20px; font-size: 11px; }
+  .back-button { font-size: 12px; }
+}
